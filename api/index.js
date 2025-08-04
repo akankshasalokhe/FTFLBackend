@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDB = require('../config/db.js');
+const serverless = require("serverless-http");
+
 const dotenv = require('dotenv');
 const cors = require('cors');
 
@@ -21,14 +23,19 @@ app.get('/', (req, res) => {
     res.send('Welcome to the backend API');
 });
 
-const PORT = process.env.PORT || 5005;
+// const PORT = process.env.PORT || 5005;
 
-app.use((req, res, next) => {
-    next();
-});
+// app.use((req, res, next) => {
+//     next();
+// });
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
 module.exports = app;
+module.exports.handler = serverless(app);
+
+// module.exports = app;
