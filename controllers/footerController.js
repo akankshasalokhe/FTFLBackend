@@ -2,13 +2,17 @@ const Footer = require('../models/footerModel.js');
 
 // GET all footer (only one typically)
 exports.getFooter = async (req, res) => {
+  console.log("GET footer called");
   try {
     const footer = await Footer.findOne();
+    console.log("Fetched footer:", footer);
     res.json(footer);
   } catch (error) {
+    console.error("Error fetching footer:", error);
     res.status(500).json({ error: 'Failed to fetch footer' });
   }
 };
+
 
 // CREATE new footer
 exports.createFooter = async (req, res) => {
