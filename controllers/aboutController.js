@@ -4,7 +4,7 @@ const AboutSection = require('../models/aboutModel.js');
 exports.createSection = async (req, res) => {
   try {
     const { type, title, description } = req.body;
-    const image = req.file?.path || 'https://via.placeholder.com/600x400';
+    const image = req.file?.path;
 
     const existing = await AboutSection.findOne({ type });
     if (existing) return res.status(400).json({ error: 'Type already exists. Use update instead.' });
@@ -81,7 +81,7 @@ exports.deleteSection = async (req, res) => {
 exports.upsertSection = async (req, res) => {
   try {
     const { type, title, description } = req.body;
-    const image = req.file?.path || req.body.image || 'https://via.placeholder.com/600x400';
+    const image = req.file?.path || req.body.image ;
 
     const updated = await AboutSection.findOneAndUpdate(
       { type },

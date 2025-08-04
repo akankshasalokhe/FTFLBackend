@@ -7,7 +7,7 @@ const {
   updateSection,
   deleteSection,
   upsertSection,
-} = require('../controllers/aboutController');
+} = require('../controllers/aboutController.js');
 const { upload } = require('../utils/cloudinary.js');
 
 // All CRUD routes
