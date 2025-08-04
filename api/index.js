@@ -18,6 +18,7 @@ app.use(express.json());
 app.use('/api/footer', require('../routes/footerRoutes.js'));
 app.use('/api/testimonial', require('../routes/testimonialRoutes.js'));
 app.use('/api/blog', require('../routes/blogRoutes.js'));
+app.use('/api/about', require('../routes/aboutRoutes.js'));
 
 app.get('/', (req, res) => {
     res.send('Welcome to the backend API');
